@@ -1,0 +1,134 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>tianmu - ring</title>
+		<script type="text/javascript" src="./lib/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="./lib/raphael-min.js"></script>
+		<script type="text/javascript" src="./lib/raphael-ring.js"></script>
+		<style>
+			body, html {
+				background: black;
+				margin: 0;
+				padding: 0;
+				font-family: "Microsoft YaHei";
+			}
+			.chart {
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="chart">
+
+		</div>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				var fakeData = [
+			   	{
+			      "name":"澳大利亚",
+			      "value":4723
+			   	},
+			   	{
+			      "name":"俄罗斯",
+			      "value":8402
+			   	},
+			   	{
+			      "name":"乌克兰",
+			      "value":48234
+			   	},
+			   	{
+			      "name":"以色列",
+			      "value":842304
+			   	},
+			   	{
+			      "name":"加拿大",
+			      "value":965
+			   	},
+			   	{
+			      "name":"美国",
+			      "value":5437
+			   	},
+			   	{
+			      "name":"阿根廷",
+			      "value":654
+			   	},
+			   	{
+			      "name":"巴西",
+			      "value":3274
+			   	},
+			   	{
+			      "name":"西班牙",
+			      "value":42394
+			   	},
+			   	{
+			      "name":"法国",
+			      "value":6543
+			   	},
+			   	{
+			      "name":"英国",
+			      "value":8765
+			   	}
+				];
+
+				var width = $(window).width();
+				var height = $(window).height();
+				var ringR = Math.min(width, height) / 4;
+				var ringInnerR = ringR * 2 / 3;
+				var ringOuterR = ringR;
+				
+				var controller = new Ring('chart', {
+						width: width,
+						height: height,
+						colors: ['#003d6c', '#005491'],
+						innerR: ringInnerR,
+						outerR: ringOuterR,
+						centerX: width / 2,
+						centerY: height / 2,
+						highlight: '#52b7fc',
+						angleDistance: 2,
+						highlightTimeInterval: 1500,
+						animateTime: 1500,
+						leftMargin: 20,
+						rightMargin: 20,
+						topMargin: 10,
+						bottomMargin: 10,
+						bigLabel: {
+							width: 200,
+							height: 133,
+							rectAttr: {
+								fill: '#0095fc',
+		        		stroke: '#0095fc'
+							},
+							titleAttr: {
+								'fill': '#fff',
+				        'font-size': 36,
+				        'text-anchor': 'start'
+							},
+							percentAttr: {
+								'fill': '#fff',
+				        'font-size': 28,
+				        'text-anchor': 'start'
+							},
+							lineWidth: 2,
+							rectRadius: 5,
+							paddingV: 20
+						},
+						tip: {
+							height: 30,
+							minLine: 30,
+							offset: 10,
+							extendHorizontalLine: 10,
+							lineAttr: {
+								stroke: '#0095fc'
+							},
+							textAttr: {
+								'fill': '#fff',
+		        		'font-size': 20,
+							}
+						}
+					}, fakeData);
+			});
+		</script>
+	</body>
+</html>
