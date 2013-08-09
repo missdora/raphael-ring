@@ -6,3 +6,5 @@ raphael-ring
 适合大屏的场景
 
 关于每个区块的TIP如何不会重叠，代码在setTip方法里
+
+<img src="https://raw.github.com/missdora/raphael-ring/master/screenshot.png" />
